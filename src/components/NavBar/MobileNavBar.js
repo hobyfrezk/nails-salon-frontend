@@ -31,7 +31,7 @@ const MyDrawer = () => {
 const MobileNavBar = () => {
 	return (
 		<div>
-			<MyAppBar position="fixed">
+			<MyAppBar position="static">
 				<MyToolbar>
 					<MyDrawer />
 					<MyTitle />

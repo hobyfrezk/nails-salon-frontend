@@ -1,9 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
+import {MyListItem} from "./NavBarUtils"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -20,15 +19,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MyListItem = (props) => {
-  const classes = useStyles();
-
-  return (
-    <ListItem button component="a" className={classes.listItem}>
-      <ListItemText disableTypography {...props} />
-    </ListItem>
-  );
-};
 
 const SideMenu = () => {
   const classes = useStyles();
@@ -36,13 +26,15 @@ const SideMenu = () => {
     <div className={classes.sideMenu}>
       <List>
         <Divider />
-        <MyListItem href="" primary="Home" />
+        <MyListItem to="/" primary="Home" style={useStyles} />
         <Divider />
-        <MyListItem href="" primary="Galary" />
+        <MyListItem to="/services" primary="Service" style={useStyles} />
         <Divider />
-        <MyListItem href="" primary="Store" />
+        <MyListItem to="/galary" primary="Galary" style={useStyles} />
         <Divider />
-        <MyListItem href="" primary="My Account" />
+        <MyListItem to="/contact" primary="Contact" style={useStyles} />
+        <Divider />
+        <MyListItem to="/my-account" primary="My Account" style={useStyles} />
         <Divider />
       </List>
     </div>
