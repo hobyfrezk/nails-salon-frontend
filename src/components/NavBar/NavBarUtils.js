@@ -17,7 +17,6 @@ export const MyAppBar = styled(AppBar)({
 });
 
 export const MyToolbar = styled(Toolbar)({
-	display: "flex",
 	justifyContent: "space-between",
 });
 

@@ -1,23 +1,32 @@
 import React from "react";
-import { MyAppBar, MyToolbar, MyTitle, MyAccount, MyListItem } from "./NavBarUtils";
+import {
+	MyAppBar,
+	MyToolbar,
+	MyTitle,
+	MyAccount,
+	MyListItem,
+} from "./NavBarUtils";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-	barBanner: {
-		fontFamily: "Lobster Two, cursive",
-		fontSize: "22px",
-		display: "flex",
-		color: "black",
-		paddingLeft: "50px",
+	MyToolbar: {
+		display: "grid",
+		gridTemplateColumns: "200px 1fr 100px",
 	},
+
+	barBanner: {
+		display: "grid",
+    gridTemplateColumns: "1fr 1fr 1fr 5fr",
+
+		fontSize: "22px",
+		color: "black",
+		fontFamily: "Lobster Two, cursive",
+	},
+
 	listItem: {
 		margin: "10px",
 	},
-	group1: {
-		display: "flex",
-	},
 }));
-
 
 const BarBanner = () => {
 	const classes = useStyles();
@@ -38,11 +47,9 @@ const DesktopNavBar = () => {
 	return (
 		<div>
 			<MyAppBar position="static">
-				<MyToolbar>
-					<div className={classes.group1}>
-						<MyTitle />
-						<BarBanner />
-					</div>
+				<MyToolbar className={classes.MyToolbar}>
+					<MyTitle />
+					<BarBanner />
 					<MyAccount />
 				</MyToolbar>
 			</MyAppBar>
