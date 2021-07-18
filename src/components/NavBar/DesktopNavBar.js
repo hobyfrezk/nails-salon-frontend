@@ -5,6 +5,7 @@ import {
 	MyTitle,
 	MyAccount,
 	MyListItem,
+  RootFont,
 } from "./NavBarUtils";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 
 		fontSize: "22px",
 		color: "black",
-		fontFamily: "Lobster Two, cursive",
+		fontFamily: RootFont,
 	},
 
 	listItem: {
