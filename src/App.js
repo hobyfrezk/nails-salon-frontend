@@ -2,6 +2,7 @@ import NavBar from "./components/NavBar/NavBar";
 import myTheme from "./components/Theme";
 import { ThemeProvider } from "@material-ui/styles";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./pages/homepage/Home";
 
 const App = () => {
 	return (
@@ -21,7 +22,7 @@ const App = () => {
 							<p>contact</p>
 						</Route>
 						<Route path="/">
-							<p>home</p>
+							<Home />
 						</Route>
 					</Switch>
 				</Router>

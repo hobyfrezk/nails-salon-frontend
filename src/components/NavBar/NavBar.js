@@ -3,7 +3,6 @@ import DesktopNavBar from "./DesktopNavBar";
 import React, { useState, useEffect } from "react";
 
 const NavBar = () => {
-
 	const [state, setState] = useState({
 		mobileView: false,
 	});
