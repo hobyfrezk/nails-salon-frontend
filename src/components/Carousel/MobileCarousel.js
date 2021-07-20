@@ -4,16 +4,16 @@ import { CarouselFont } from "../Theme";
 
 const useStyles = makeStyles((theme) => ({
 	container: {
-		position: "relative",
 		color: "white",
 		fontFamily: CarouselFont,
+		display: "flex",
 	},
 	textbox: {
 		position: "absolute",
-    height: "100%",
-    width: "100%",
-		top: "0%",
-		backgroundColor: "rgba(0, 0, 0, 0.3)",
+		height: "40%",
+		width: "100%",
+		top: "30%",
+		textAlign: "center",
 	},
 	title1: {
 		fontSize: "2em",
@@ -30,9 +30,9 @@ const useStyles = makeStyles((theme) => ({
 	},
 	img: {
 		width: "100vw",
-		aspectRatio: "10/3",
+		aspectRatio: "2/1",
 		objectFit: "cover",
-		filter: "sepia(10%)",
+		filter: " brightness(60%) grayscale(30%)",
 	},
 }));
 
@@ -43,7 +43,12 @@ const navButtonStyle = {
 };
 
 const indicatorContainerStyle = {
-  marginTop: "5px",
+	marginTop: "0",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+	backgroundColor: "rgba(0, 0, 0, 0.1)",
+  height: "40px",
 };
 
 function Pic({ item }) {
