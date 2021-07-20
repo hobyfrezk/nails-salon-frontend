@@ -4,6 +4,7 @@ import { CarouselFont } from "../Theme";
 
 const useStyles = makeStyles((theme) => ({
 	container: {
+    
 		color: "white",
 		fontFamily: CarouselFont,
 		display: "flex",
@@ -12,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 		position: "absolute",
 		height: "40%",
 		width: "100%",
-		top: "30%",
+		top: "10vh",
 		textAlign: "center",
 	},
 	title1: {
@@ -37,18 +38,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const navButtonStyle = {
-	margin: "10px",
 	filter: "opacity(80%)",
 	transform: "scale(0.7)",
 };
 
 const indicatorContainerStyle = {
 	marginTop: "0",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
+	display: "flex",
+	justifyContent: "center",
+	alignItems: "center",
 	backgroundColor: "rgba(0, 0, 0, 0.1)",
-  height: "40px",
+	height: "40px",
 };
 
 function Pic({ item }) {
@@ -71,6 +71,7 @@ const MobileCarousel = ({ pic }) => {
 		<Carousel
 			timeout={300}
 			autoPlay={false}
+      animation={"slide"}
 			navButtonsAlwaysVisible={true}
 			navButtonsProps={{ style: navButtonStyle }}
 			indicatorContainerProps={{ style: indicatorContainerStyle }}
