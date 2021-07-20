@@ -25,10 +25,10 @@ const homePic = [
 
 
 
-const Home = () => {
+const Home = ({mobileView}) => {
 	return (
 		<Grid>
-			<HomeCarousel pic={homePic} />
+			<HomeCarousel pic={homePic} mobileView={mobileView} />
 		</Grid>
 	);
 };
