@@ -5,23 +5,22 @@ import {
 	MyTitle,
 	MyAccount,
 	MyListItem,
-  RootFont,
 } from "./NavBarUtils";
 import { makeStyles } from "@material-ui/core/styles";
+import {NavFont} from "../Theme"
 
 const useStyles = makeStyles((theme) => ({
 	MyToolbar: {
 		display: "grid",
-		gridTemplateColumns: "200px 1fr 100px",
+		gridTemplateColumns: "200px 1fr 50px",
 	},
 
 	barBanner: {
 		display: "grid",
-    gridTemplateColumns: "1fr 1fr 1fr 5fr",
-
-		fontSize: "22px",
+    gridTemplateColumns: "1fr 1fr 1fr 1fr 10fr",
+		fontSize: "20px",
 		color: "black",
-		fontFamily: RootFont,
+		fontFamily: NavFont,
 	},
 
 	listItem: {

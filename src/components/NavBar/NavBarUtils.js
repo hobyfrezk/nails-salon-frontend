@@ -7,15 +7,10 @@ import { Link } from "react-router-dom";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItem from "@material-ui/core/ListItem";
 import React from "react";
-
-export const RootFont = "Archivo Narrow, cursive";
+import {NavFont} from "../Theme"
 
 export const MyAppBar = styled(AppBar)({
-	// background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
 	background: "white",
-	height: 55,
-	boxShadow: "0px 0px 0px 0px",
-	// boxShadow: "3px 3px 5px 2px rgba(255, 105, 135, .3)",
 });
 
 export const MyToolbar = styled(Toolbar)({
@@ -25,14 +20,13 @@ export const MyToolbar = styled(Toolbar)({
 export const MyTitleStyle = makeStyles({
 	title: {
 		color: "black",
-		fontSize: "28px",
-		fontFamily: RootFont,
+		fontSize: "30px",
+		fontFamily: NavFont,
+		margin: "0"
 	},
 	desktopBanner: {
 		display: "flex",
 		color: "black",
-		fontSize: "22px",
-		fontFamily: RootFont,
 	},
 });
 

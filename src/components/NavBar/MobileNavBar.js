@@ -30,15 +30,13 @@ const MyDrawer = () => {
 
 const MobileNavBar = () => {
 	return (
-		<div>
-			<MyAppBar position="static">
-				<MyToolbar>
-					<MyDrawer />
-					<MyTitle />
-					<MyAccount />
-				</MyToolbar>
-			</MyAppBar>
-		</div>
+		<MyAppBar position="static">
+			<MyToolbar>
+				<MyDrawer />
+				<MyTitle />
+				<MyAccount />
+			</MyToolbar>
+		</MyAppBar>
 	);
 };
 
