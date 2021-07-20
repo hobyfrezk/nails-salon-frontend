@@ -26,10 +26,14 @@ const useStyles = makeStyles((theme) => ({
 		borderBottom: "2px solid gray",
 		backgroundColor: "transparent",
 		outline: "0",
-		fontSize: "30px",
+		fontSize: "1rem",
 		fontFamily: EmailFont,
 		textAlign: "center",
 		width: "296px",
+		"&:focus": {
+			borderBottom: "3px solid black",
+			
+		}
 	},
 	button: {
 		border: "1px solid black",
@@ -42,6 +46,10 @@ const useStyles = makeStyles((theme) => ({
 		[theme.breakpoints.down("md")]: {
 			marginTop: "10px",
 			marginBottom: "40px",
+		},
+		"&:hover": {
+			backgroundColor: "rgba(36, 30, 16)",
+			color: "rgba(230, 212, 163)",
 		},
 	},
 }));

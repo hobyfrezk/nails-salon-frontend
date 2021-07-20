@@ -49,6 +49,11 @@ const App = () => {
 					</Route>
 				</Switch>
 			</Router>
+			<div>meant to be empty</div>
+			<div>under developing</div>
+			<div>meant to be empty</div>
+			<div>under developing</div>
+		
 			<Footer mobileView={mobileView}/>
 		</ThemeProvider>
 	);
