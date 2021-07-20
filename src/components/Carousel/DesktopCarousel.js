@@ -69,6 +69,7 @@ const DesktopCarousel = ({ pic }) => {
 		<Carousel
 			timeout={300}
 			autoPlay={false}
+      animation={"slide"}
 			navButtonsAlwaysVisible={true}
 			navButtonsProps={{ style: navButtonStyle }}
 			indicatorContainerProps={{ style: indicatorContainerStyle }}

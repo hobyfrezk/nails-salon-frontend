@@ -11,6 +11,7 @@ import {NavFont} from "../Theme"
 
 export const MyAppBar = styled(AppBar)({
 	background: "white",
+	boxShadow: "0 0 0 0",
 });
 
 export const MyToolbar = styled(Toolbar)({

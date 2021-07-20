@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
 
 	listItem: {
 		margin: "10px",
+		textAlign: "center",
 	},
 }));
 

@@ -3,12 +3,36 @@ import myTheme from "./components/Theme";
 import { ThemeProvider } from "@material-ui/styles";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/homepage/Home";
+import React, { useState, useEffect } from "react";
+import Footer from "./components/Footer/Footer";
+
 
 const App = () => {
+	const [state, setState] = useState({
+		mobileView: false,
+	});
+
+	const { mobileView } = state;
+
+	useEffect(() => {
+		const setResponsiveness = () => {
+			return window.innerWidth < 900
+				? setState((prevState) => ({ ...prevState, mobileView: true }))
+				: setState((prevState) => ({ ...prevState, mobileView: false }));
+		};
+
+		setResponsiveness();
+		window.addEventListener("resize", () => setResponsiveness());
+
+		return () => {
+			window.removeEventListener("resize", () => setResponsiveness());
+		};
+	}, [mobileView]);
+
 	return (
 		<ThemeProvider theme={myTheme}>
 			<Router>
-				<NavBar />
+				<NavBar mobileView={mobileView}/>
 
 				<Switch>
 					<Route path="/services">
@@ -21,10 +45,16 @@ const App = () => {
 						<p>contact</p>
 					</Route>
 					<Route path="/">
-						<Home />
+						<Home mobileView={mobileView}/>
 					</Route>
 				</Switch>
 			</Router>
+			<div>meant to be empty</div>
+			<div>under developing</div>
+			<div>meant to be empty</div>
+			<div>under developing</div>
+		
+			<Footer mobileView={mobileView}/>
 		</ThemeProvider>
 	);
 };
