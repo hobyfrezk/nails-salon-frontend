@@ -1,6 +1,6 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import HomeCarousel from "../../components/Carousel/HomeCarousel"
+import HomeCarousel from "../../components/Carousel"
 
 const homePic = [
 	{

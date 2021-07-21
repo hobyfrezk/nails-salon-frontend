@@ -1,19 +1,28 @@
 import Carousel from "react-material-ui-carousel";
 import { makeStyles } from "@material-ui/core/styles";
-import { CarouselFont } from "../Theme";
+import { CarouselFont } from "./Theme";
 
 const useStyles = makeStyles((theme) => ({
 	container: {
-		position: "relative",
 		color: "white",
+		display: "flex",
 		fontFamily: CarouselFont,
 	},
 	textbox: {
 		position: "absolute",
-		bottom: "15%",
-		left: "3vw",
-		backgroundColor: "rgba(0, 0, 0, 0.3)",
-		padding: "10px",
+		top: "250px",
+		left: "5vw",
+		backgroundColor: "rgba(0, 0, 0, 0.5)",
+		padding: "20px",
+
+		[theme.breakpoints.down("md")]: {
+			position: "absolute",
+			left: "0",
+			top: "50px",
+			padding: "0",
+			backgroundColor: "rgba(0,0,0,0)",
+			transform: `translate(30%, 50%)`,
+		},
 	},
 	title1: {
 		fontSize: "2em",
@@ -33,20 +42,27 @@ const useStyles = makeStyles((theme) => ({
 		aspectRatio: "10/3",
 		objectFit: "cover",
 		filter: "sepia(10%)",
+		[theme.breakpoints.down("md")]: {
+			width: "100vw",
+			aspectRatio: "1.66/1",
+			objectFit: "cover",
+			filter: " brightness(60%) grayscale(30%)",
+		},
 	},
 }));
 
 const navButtonStyle = {
-	margin: "10px",
 	filter: "opacity(80%)",
 	transform: "scale(0.7)",
 };
 
 const indicatorContainerStyle = {
-	width: "95%",
-	position: "absolute",
-	bottom: "5%",
-	textAlign: "right",
+	marginTop: "0",
+	display: "flex",
+	justifyContent: "center",
+	alignItems: "center",
+	backgroundColor: "rgba(0, 0, 0, 0.1)",
+	height: "40px",
 };
 
 function Pic({ item }) {
@@ -64,7 +80,8 @@ function Pic({ item }) {
 	);
 }
 
-const DesktopCarousel = ({ pic }) => {
+const HomeCarousel = ({ pic }) => {
+
 	return (
 		<Carousel
 			timeout={300}
@@ -81,4 +98,4 @@ const DesktopCarousel = ({ pic }) => {
 	);
 };
 
-export default DesktopCarousel;
+export default HomeCarousel;
