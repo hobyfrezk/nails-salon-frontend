@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItem from "@material-ui/core/ListItem";
 import React from "react";
-import {NavFont} from "../Theme"
+import { NavFont } from "../Theme";
+import LoginModal from "../Accounts/LoginModal";
 
 export const MyAppBar = styled(AppBar)({
 	background: "rgba(230, 212, 163, 0.3)",
@@ -23,7 +24,7 @@ export const MyTitleStyle = makeStyles({
 		color: "black",
 		fontSize: "30px",
 		fontFamily: NavFont,
-		margin: "0"
+		margin: "0",
 	},
 	desktopBanner: {
 		display: "flex",
@@ -37,11 +38,25 @@ export const MyTitle = () => {
 };
 
 export const MyAccount = () => {
+	const [state, setState] = React.useState({ open: false });
+
+	const handleOpen = () => {
+		setState((prev) => ({ ...prev, open: true }));
+		console.log(1)
+	};
+
+	const handleClose = () => {
+		setState((prev) => ({ ...prev, open: false }));
+	};
+
+	const { open } = state;
+
 	return (
 		<div>
-			<Button>
+			<Button onClick={handleOpen}>
 				<AccountCircleIcon />
 			</Button>
+			<LoginModal open={open} handleClose={handleClose} />
 		</div>
 	);
 };
