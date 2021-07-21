@@ -40,7 +40,7 @@ export const FootDescript = () => {
 					</div>
 				</Grid>
 				<Grid item lg={12} xs={12} align="right">
-					Powered by Chongshun ·  HOOOOBY STUDIO™
+					<p>Powered by Chongshun ·  HOOOOBY STUDIO™</p>
 				</Grid>
 			</Grid>
 		</div>
