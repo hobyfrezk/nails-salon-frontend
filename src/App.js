@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/homepage/Home";
 import React, { useState, useEffect } from "react";
 import Footer from "./components/Footer/Footer";
-
+import Contact from "./pages/contact/Contact"
 
 const App = () => {
 	const [state, setState] = useState({
@@ -42,17 +42,13 @@ const App = () => {
 						<p>galary</p>
 					</Route>
 					<Route path="/contact">
-						<p>contact</p>
+						<Contact />
 					</Route>
 					<Route path="/">
 						<Home mobileView={mobileView}/>
 					</Route>
 				</Switch>
 			</Router>
-			<div>meant to be empty</div>
-			<div>under developing</div>
-			<div>meant to be empty</div>
-			<div>under developing</div>
 		
 			<Footer mobileView={mobileView}/>
 		</ThemeProvider>
