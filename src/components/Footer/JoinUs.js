@@ -32,7 +32,6 @@ const useStyles = makeStyles((theme) => ({
 		width: "296px",
 		"&:focus": {
 			borderBottom: "3px solid black",
-			
 		}
 	},
 	button: {

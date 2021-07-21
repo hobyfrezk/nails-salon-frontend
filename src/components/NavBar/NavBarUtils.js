@@ -10,7 +10,7 @@ import React from "react";
 import {NavFont} from "../Theme"
 
 export const MyAppBar = styled(AppBar)({
-	background: "white",
+	background: "rgba(230, 212, 163, 0.3)",
 	boxShadow: "0 0 0 0",
 });
 
