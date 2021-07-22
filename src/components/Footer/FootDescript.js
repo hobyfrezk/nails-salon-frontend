@@ -1,10 +1,10 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core";
-import Grid from "@material-ui/core/Grid";
-import { TextFont } from "../Theme";
 import FacebookIcon from "@material-ui/icons/Facebook";
+import Grid from "@material-ui/core/Grid";
 import InstagramIcon from "@material-ui/icons/Instagram";
+import React from "react";
+import { TextFont } from "components/Theme";
 import YouTubeIcon from "@material-ui/icons/YouTube";
+import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
 	container: {

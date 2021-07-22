@@ -1,11 +1,12 @@
-import NavBar from "./components/NavBar/NavBar";
-import myTheme from "./components/Theme";
+import React, { useEffect, useState } from "react";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+
+import Contact from "pages/contact/Contact"
+import Footer from "components/Footer/Footer";
+import Home from "pages/homepage/Home";
+import NavBar from "components/NavBar/NavBar";
 import { ThemeProvider } from "@material-ui/styles";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./pages/homepage/Home";
-import React, { useState, useEffect } from "react";
-import Footer from "./components/Footer/Footer";
-import Contact from "./pages/contact/Contact"
+import myTheme from "components/Theme";
 
 const App = () => {
 	const [state, setState] = useState({

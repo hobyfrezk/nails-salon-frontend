@@ -1,8 +1,9 @@
 import { Button, Grid } from "@material-ui/core";
+import { CarouselFont, TextFont } from "components/Theme";
+
 import Instagram from "@material-ui/icons/Instagram";
 import React from "react";
 import { makeStyles } from "@material-ui/core";
-import { CarouselFont, TextFont } from "../../components/Theme";
 
 const useStyles = makeStyles((theme) => ({
 	container: {

@@ -1,13 +1,14 @@
-import React from "react";
 import {
-	MyAppBar,
-	MyToolbar,
-	MyTitle,
 	MyAccount,
+	MyAppBar,
 	MyListItem,
+	MyTitle,
+	MyToolbar,
 } from "./NavBarUtils";
-import { makeStyles } from "@material-ui/core/styles";
+
 import {NavFont} from "../Theme"
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
 	MyToolbar: {

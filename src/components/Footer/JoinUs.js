@@ -1,8 +1,9 @@
-import React from "react";
-import Grid from "@material-ui/core/Grid";
+import { EmailFont, JoinUsFont } from "components/Theme";
+
 import { Button } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { JoinUsFont, EmailFont } from "../Theme";
 
 const useStyles = makeStyles((theme) => ({
 	container: {
