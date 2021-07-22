@@ -1,9 +1,9 @@
+import Divider from "@material-ui/core/Divider";
+import List from "@material-ui/core/List";
+import { MyListItem } from "components/NavBar/NavBarUtils";
+import {NavFont} from "components/Theme"
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import List from "@material-ui/core/List";
-import Divider from "@material-ui/core/Divider";
-import { MyListItem } from "./NavBarUtils";
-import {NavFont} from "../Theme"
 
 const useStyles = makeStyles((theme) => ({
 	sideMenu: {

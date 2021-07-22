@@ -1,6 +1,6 @@
 import Carousel from "react-material-ui-carousel";
+import { CarouselFont } from "components/Theme";
 import { makeStyles } from "@material-ui/core/styles";
-import { CarouselFont } from "./Theme";
 
 const useStyles = makeStyles((theme) => ({
 	container: {

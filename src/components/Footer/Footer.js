@@ -1,6 +1,6 @@
-import React from "react";
+import { FootDescript } from "components/Footer/FootDescript";
 import JoinUs from "./JoinUs";
-import { FootDescript } from "./FootDescript";
+import React from "react";
 
 const Footer = () => {
 	return (

@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
 		position: "absolute",
 		backgroundColor: "white",
 		width: "40vw",
-		height: "30vh",
+		height: "35vh",
 		minHeight: "350px",
 		borderRadius: "10px",
 		top: `50%`,
@@ -21,28 +21,28 @@ const useStyles = makeStyles((theme) => ({
 
 		[theme.breakpoints.down("sm")]: {
 			width: "90vw",
-			height: "30vh",
+			height: "50vh",
 		},
 	},
 	sideImg: {
 		width: "100%",
-		height: "30vh",
+		height: "35vh",
 		minHeight: "350px",
 		borderRadius: "15px 0 0 15px",
 		objectFit: "cover",
 		aspectRatio: "2/3",
 		[theme.breakpoints.down("sm")]: {
-			height: "30vh",
+			height: "50vh",
 			minHeight: "350px",
 		},
 	},
 	body: {
-		height: "30vh",
+		height: "35vh",
 		minHeight: "350px",
 
 		width: "100%",
 		[theme.breakpoints.down("sm")]: {
-			height: "30vh",
+			height: "50vh",
 			minHeight: "350px",
 		},
 	},
@@ -83,7 +83,11 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const LoginModal = ({ open, handleClose, signUpState}) => {
+const SignUpModal = ({ open, handleModalClose, loginState }) => {
+	const handleClose = () => {
+		handleModalClose();
+		loginState();
+	};
 	const classes = useStyles();
 	return (
 		<Modal open={open} onClose={handleClose}>
@@ -98,7 +102,7 @@ const LoginModal = ({ open, handleClose, signUpState}) => {
 					</Grid>
 					<Grid item xs={7}>
 						<div className={classes.body}>
-							<p className={classes.title}>Login</p>
+							<p className={classes.title}>Sign Up</p>
 							<input
 								type="text"
 								className={classes.input}
@@ -109,10 +113,12 @@ const LoginModal = ({ open, handleClose, signUpState}) => {
 								className={classes.input}
 								placeholder="Password"
 							/>
-							<Button onClick={handleClose} className={classes.buttonLogin}>
-								Login
-							</Button>
-							<Button onClick={signUpState} className={classes.buttonRegister}>
+              <input
+								type="password"
+								className={classes.input}
+								placeholder="Repeat Your Password"
+							/>
+							<Button onClick={handleClose} className={classes.buttonRegister}>
 								Register
 							</Button>
 						</div>
@@ -123,4 +129,4 @@ const LoginModal = ({ open, handleClose, signUpState}) => {
 	);
 };
 
-export default LoginModal;
+export default SignUpModal;

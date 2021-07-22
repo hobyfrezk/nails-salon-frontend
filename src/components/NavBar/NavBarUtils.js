@@ -1,14 +1,15 @@
 import { makeStyles, styled } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Button from "@material-ui/core/Button";
+
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import AppBar from "@material-ui/core/AppBar";
+import AuthModal from "components/Accounts/AuthModal";
+import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
-import ListItemText from "@material-ui/core/ListItemText";
 import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import { NavFont } from "components/Theme";
 import React from "react";
-import { NavFont } from "../Theme";
-import LoginModal from "../Accounts/LoginModal";
+import Toolbar from "@material-ui/core/Toolbar";
 
 export const MyAppBar = styled(AppBar)({
 	background: "rgba(230, 212, 163, 0.3)",
@@ -38,25 +39,39 @@ export const MyTitle = () => {
 };
 
 export const MyAccount = () => {
-	const [state, setState] = React.useState({ open: false });
+	const [state, setState] = React.useState({ open: false, type: "login" });
 
 	const handleOpen = () => {
 		setState((prev) => ({ ...prev, open: true }));
-		console.log(1)
+		console.log(1);
 	};
 
 	const handleClose = () => {
 		setState((prev) => ({ ...prev, open: false }));
 	};
 
-	const { open } = state;
+	const loginState = () => {
+		setState((prev) => ({ ...prev, type: "login" }));
+	};
+
+	const signUpState = () => {
+		setState((prev) => ({ ...prev, type: "signup" }));
+	};
+
+	const { open, type } = state;
 
 	return (
 		<div>
 			<Button onClick={handleOpen}>
 				<AccountCircleIcon />
 			</Button>
-			<LoginModal open={open} handleClose={handleClose} />
+			<AuthModal
+				open={open}
+				type={type}
+				handleClose={handleClose}
+				loginState={loginState}
+				signUpState={signUpState}
+			/>
 		</div>
 	);
 };
