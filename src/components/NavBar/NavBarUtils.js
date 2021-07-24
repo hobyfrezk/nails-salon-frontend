@@ -43,7 +43,6 @@ export const MyAccount = () => {
 
 	const handleOpen = () => {
 		setState((prev) => ({ ...prev, open: true }));
-		console.log(1);
 	};
 
 	const handleClose = () => {

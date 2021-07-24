@@ -3,6 +3,7 @@ import { Grid } from "@material-ui/core";
 import Modal from "@material-ui/core/Modal";
 import React from "react";
 import { TextFont } from "components/Theme";
+import { apiLogin } from "../../api/auth";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -83,7 +84,11 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const LoginModal = ({ open, handleClose, signUpState}) => {
+const loginData = { username: "admin", password: "admin" };
+
+const LoginModal = ({ open, handleClose, signUpState }) => {
+	React.useEffect(() => {}, []);
+
 	const classes = useStyles();
 	return (
 		<Modal open={open} onClose={handleClose}>
@@ -109,7 +114,7 @@ const LoginModal = ({ open, handleClose, signUpState}) => {
 								className={classes.input}
 								placeholder="Password"
 							/>
-							<Button onClick={handleClose} className={classes.buttonLogin}>
+							<Button onClick={() => apiLogin(loginData)} className={classes.buttonLogin}>
 								Login
 							</Button>
 							<Button onClick={signUpState} className={classes.buttonRegister}>

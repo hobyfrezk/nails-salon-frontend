@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 		width: "296px",
 		"&:focus": {
 			borderBottom: "3px solid black",
-		}
+		},
 	},
 	button: {
 		border: "1px solid black",
@@ -63,20 +63,13 @@ const JoinUs = () => {
 				container
 				spacing={0}
 				align="center"
-				justify="center"
+				justifyContent="center"
 				alignItems="center"
 			>
 				<Grid item xs={12} lg={7}>
 					<p className={classes.text}>Try MineNails - Join the Club</p>
 				</Grid>
-				<Grid
-					item
-					align="center"
-					justify="center"
-					alignItems="center"
-					xs={12}
-					lg={2}
-				>
+				<Grid item xs={12} lg={2}>
 					<input
 						type="text"
 						className={classes.input}
