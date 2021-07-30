@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import { makeStyles, styled } from "@material-ui/core/styles";
 
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
@@ -8,8 +9,8 @@ import { Link } from "react-router-dom";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import { NavFont } from "components/Theme";
-import React from "react";
 import Toolbar from "@material-ui/core/Toolbar";
+import { loginStatus } from "api/auth";
 
 export const MyAppBar = styled(AppBar)({
 	background: "rgba(230, 212, 163, 0.3)",
@@ -39,7 +40,19 @@ export const MyTitle = () => {
 };
 
 export const MyAccount = () => {
-	const [state, setState] = React.useState({ open: false, type: "login" });
+	const [state, setState] = useState({ open: false, type: "login" });
+	const [authState, setAuthState] = useState({});
+
+	useEffect(() => {
+		async function getLoginStatus() {
+			const data = await loginStatus();
+			if (data.has_logged_in) {
+				console.log(data.user)
+				setAuthState(data.user);
+			}
+		}
+		getLoginStatus()
+	}, []);
 
 	const handleOpen = () => {
 		setState((prev) => ({ ...prev, open: true }));
@@ -63,10 +76,12 @@ export const MyAccount = () => {
 		<div>
 			<Button onClick={handleOpen}>
 				<AccountCircleIcon />
+				{authState === {} ? null : authState.username}
 			</Button>
 			<AuthModal
 				open={open}
 				type={type}
+				setAuthState={setAuthState}
 				handleClose={handleClose}
 				loginState={loginState}
 				signUpState={signUpState}

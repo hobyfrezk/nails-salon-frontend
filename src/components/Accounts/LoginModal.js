@@ -1,7 +1,8 @@
+import React, { useState } from "react";
+
 import { Button } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
 import Modal from "@material-ui/core/Modal";
-import React from "react";
 import { TextFont } from "components/Theme";
 import { apiLogin } from "../../api/auth";
 import { makeStyles } from "@material-ui/core/styles";
@@ -84,10 +85,22 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const loginData = { username: "admin", password: "admin" };
 
-const LoginModal = ({ open, handleClose, signUpState }) => {
-	React.useEffect(() => {}, []);
+const LoginModal = ({ open, handleClose, signUpState, setAuthState }) => {
+	const [loginData, setLoginData] = useState({ username: "", password: "" });
+
+	const onChanged = (event) => {
+		setLoginData((prev) => ({
+			...prev,
+			[event.target.name]: event.target.value,
+		}));
+	};
+
+	const loginOnClick = async () => {
+		const response = await apiLogin(loginData)
+		console.log(response)
+		setAuthState(response.user)
+	}
 
 	const classes = useStyles();
 	return (
@@ -107,14 +120,21 @@ const LoginModal = ({ open, handleClose, signUpState }) => {
 							<input
 								type="text"
 								className={classes.input}
-								placeholder="Email"
+								placeholder="Username"
+								onChange={onChanged}
+								name="username"
 							/>
 							<input
 								type="password"
 								className={classes.input}
 								placeholder="Password"
+								onChange={onChanged}
+								name="password"
 							/>
-							<Button onClick={() => apiLogin(loginData)} className={classes.buttonLogin}>
+							<Button
+								onClick={loginOnClick}
+								className={classes.buttonLogin}
+							>
 								Login
 							</Button>
 							<Button onClick={signUpState} className={classes.buttonRegister}>
