@@ -39,23 +39,42 @@ export const MyTitle = () => {
 	return <p className={classes.title}> {"MineNails"} </p>;
 };
 
+const MyAccountStyle = makeStyles({
+	container: {
+		display: "flex",
+		width: "150px",
+	},
+	name: {
+		color: "black",
+		margin: "5px",
+	},
+});
+
 export const MyAccount = () => {
+	const classes = MyAccountStyle();
+
 	const [state, setState] = useState({ open: false, type: "login" });
 	const [authState, setAuthState] = useState({});
+	const { open, type } = state;
 
 	useEffect(() => {
 		async function getLoginStatus() {
 			const data = await loginStatus();
 			if (data.has_logged_in) {
-				console.log(data.user)
+				console.log(data.user);
 				setAuthState(data.user);
 			}
 		}
-		getLoginStatus()
-	}, []);
+		getLoginStatus();
+	}, [state]);
 
 	const handleOpen = () => {
-		setState((prev) => ({ ...prev, open: true }));
+		if(authState === {}){
+			setState((prev) => ({ ...prev, open: true }));
+		} else {
+			console.log("open user manage page")	
+		}
+		
 	};
 
 	const handleClose = () => {
@@ -70,13 +89,13 @@ export const MyAccount = () => {
 		setState((prev) => ({ ...prev, type: "signup" }));
 	};
 
-	const { open, type } = state;
-
 	return (
-		<div>
+		<div className={classes.container}>
 			<Button onClick={handleOpen}>
 				<AccountCircleIcon />
-				{authState === {} ? null : authState.username}
+				{authState === {} ? null : (
+					<p className={classes.name}>Hi, {authState.username}</p>
+				)}
 			</Button>
 			<AuthModal
 				open={open}

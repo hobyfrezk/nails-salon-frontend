@@ -13,7 +13,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
 	MyToolbar: {
 		display: "grid",
-		gridTemplateColumns: "200px 1fr 50px",
+		gridTemplateColumns: "200px 1fr auto",
 	},
 
 	barBanner: {
