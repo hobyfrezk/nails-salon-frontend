@@ -1,12 +1,7 @@
-import {
-	MyAccount,
-	MyAppBar,
-	MyListItem,
-	MyTitle,
-	MyToolbar,
-} from "./NavBarUtils";
+import { MyAppBar, MyListItem, MyTitle, MyToolbar } from "./NavBarUtils";
 
-import {NavFont} from "../Theme"
+import { MyAccount } from "./MyAccount";
+import { NavFont } from "../Theme";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -18,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 
 	barBanner: {
 		display: "grid",
-    gridTemplateColumns: "1fr 1fr 1fr 1fr 10fr",
+		gridTemplateColumns: "1fr 1fr 1fr 1fr 10fr",
 		fontSize: "20px",
 		color: "black",
 		fontFamily: NavFont,

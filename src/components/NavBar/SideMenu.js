@@ -33,7 +33,7 @@ const SideMenu = () => {
 				<Divider />
 				<MyListItem to="/contact" primary="Contact" style={useStyles} />
 				<Divider />
-				<MyListItem to="/my-account" primary="My Account" style={useStyles} />
+				<MyListItem to="/dashboard" primary="My Account" style={useStyles} />
 				<Divider />
 			</List>
 		</div>

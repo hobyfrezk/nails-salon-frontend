@@ -1,14 +1,13 @@
 import LoginModal from "components/Accounts/LoginModal";
 import SignUpModal from "components/Accounts/SignUpModal";
 
-const AuthModal = ({ open, type, handleClose, loginState, signUpState, setAuthState }) => {
+const AuthModal = ({ open, type, handleClose, loginState, signUpState }) => {
 	if (type === "login") {
 		return (
 			<LoginModal
 				open={open}
 				handleClose={handleClose}
 				signUpState={signUpState}
-				setAuthState={setAuthState}
 			/>
 		);
 	}
@@ -18,7 +17,6 @@ const AuthModal = ({ open, type, handleClose, loginState, signUpState, setAuthSt
 				open={open}
 				handleModalClose={handleClose}
 				loginState={loginState}
-				setAuthState={setAuthState}
 			/>
 		);
 	}

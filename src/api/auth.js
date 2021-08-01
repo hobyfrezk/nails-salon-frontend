@@ -18,7 +18,6 @@ export async function apiLogin(data) {
 	const loginURL = "http://localhost/api/accounts/login/";
 
 	const response = await axios.post(loginURL, data, config);
-	console.log(response);
 	return response.data;
 }
 

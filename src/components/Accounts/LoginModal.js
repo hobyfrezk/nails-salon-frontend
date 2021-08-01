@@ -6,6 +6,8 @@ import Modal from "@material-ui/core/Modal";
 import { TextFont } from "components/Theme";
 import { apiLogin } from "../../api/auth";
 import { makeStyles } from "@material-ui/core/styles";
+import { updateAuth } from "redux/authSlice";
+import { useDispatch } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
 	container: {
@@ -85,9 +87,9 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-
 const LoginModal = ({ open, handleClose, signUpState, setAuthState }) => {
 	const [loginData, setLoginData] = useState({ username: "", password: "" });
+	const dispatch = useDispatch();
 
 	const onChanged = (event) => {
 		setLoginData((prev) => ({
@@ -97,10 +99,17 @@ const LoginModal = ({ open, handleClose, signUpState, setAuthState }) => {
 	};
 
 	const loginOnClick = async () => {
-		const response = await apiLogin(loginData)
-		console.log(response)
-		setAuthState(response.user)
-	}
+		const response = await apiLogin(loginData);
+		console.log(response);
+		dispatch(
+			updateAuth({
+				auth: {
+					isLoggedIn: response.success,
+					user: response.user,
+				},
+			})
+		);
+	};
 
 	const classes = useStyles();
 	return (
@@ -131,10 +140,7 @@ const LoginModal = ({ open, handleClose, signUpState, setAuthState }) => {
 								onChange={onChanged}
 								name="password"
 							/>
-							<Button
-								onClick={loginOnClick}
-								className={classes.buttonLogin}
-							>
+							<Button onClick={loginOnClick} className={classes.buttonLogin}>
 								Login
 							</Button>
 							<Button onClick={signUpState} className={classes.buttonRegister}>

@@ -1,8 +1,9 @@
-import { MyAccount, MyAppBar, MyTitle, MyToolbar } from "components/NavBar/NavBarUtils";
+import { MyAppBar, MyTitle, MyToolbar } from "components/NavBar/NavBarUtils";
 import React, { useState } from "react";
 
 import Button from "@material-ui/core/Button";
 import MenuIcon from "@material-ui/icons/Menu";
+import { MyAccount } from "./MyAccount";
 import SideMenu from "components/NavBar/SideMenu";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 
