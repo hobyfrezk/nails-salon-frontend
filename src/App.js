@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
-import Contact from "pages/contact/Contact";
+import Contact from "pages/Contact";
+import Dashboard from "pages/Dashboard";
 import Footer from "components/Footer/Footer";
-import Home from "pages/homepage/Home";
+import Home from "pages/Home";
 import NavBar from "components/NavBar/NavBar";
 import { ThemeProvider } from "@material-ui/styles";
 import myTheme from "components/Theme";
@@ -46,7 +47,7 @@ const App = () => {
 						<Contact />
 					</Route>
 					<Route path="/dashboard">
-						<p>dashboard</p>
+						<Dashboard />
 					</Route>
 					<Route path="/">
 						<Home mobileView={mobileView} />
