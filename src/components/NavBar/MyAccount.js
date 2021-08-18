@@ -56,7 +56,7 @@ export const MyAccount = () => {
 
 	const handleOpen = () => {
 		if (!isLoggedIn) {
-			// if not loggedIn, button onClick behavior is open log in modal
+			// if not loggedIn, button onClick behavior is open log-in modal
 			setModalState((prev) => ({ ...prev, open: true }));
 		} else {
 			// else open homepage dashboard

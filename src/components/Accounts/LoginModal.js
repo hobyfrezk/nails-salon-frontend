@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 		left: `50%`,
 		transform: `translate(-50%, -50%)`,
 		fontFamily: TextFont,
-		boxShadow: "0px 0px 3px 1px gray",
+		boxShadow: "0px 0px 3px 1px gray", 
 
 		[theme.breakpoints.down("sm")]: {
 			width: "90vw",

@@ -1,8 +1,12 @@
+import { Button } from "@material-ui/core";
 import FaceIcon from "@material-ui/icons/FaceOutlined";
 import HistoryIcon from "@material-ui/icons/History";
 import MonetizationOnIcon from "@material-ui/icons/MonetizationOnOutlined";
 import Panel from "components/Dashboard/Panel";
+import { apiLogout } from "api/auth";
 import { makeStyles } from "@material-ui/core/styles";
+import { updateAuth } from "redux/authSlice";
+import { useDispatch } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
 	container: {
@@ -10,20 +14,52 @@ const useStyles = makeStyles((theme) => ({
 		placeItems: "center",
 		margin: "5vw",
 	},
-	title: {
+	titleContainer: {
+		display: "flex",
 		width: "80vw",
+		alignItems: "center",
+		justifyContent: "space-between",
+		margin: "15px",
+	},
+	title: {
+		width: "70vw",
 		fontSize: "25px",
 		fontWeight: "600",
-		marginBottom: "3vw",
 	},
+	button:{
+		width: "fit-content",
+		border: "2px solid"
+	}
 }));
 
 const Dashboard = () => {
 	const classes = useStyles();
+	const dispatch = useDispatch();
+
+	const logoutOnClick = async () => {
+		const response = await apiLogout();
+		console.log(response);
+
+		if(!response.success){
+			return
+		}
+		dispatch(
+			updateAuth({
+				auth: {
+					isLoggedIn: false,
+					user: {},
+				},
+			})
+		);
+	};
+
 
 	return (
 		<div className={classes.container}>
-			<div className={classes.title}> My account</div>
+			<div className={classes.titleContainer}>
+				<div className={classes.title}> My account</div>
+				<Button className={classes.button} onClick={logoutOnClick}>Logout</Button>	
+			</div>
 			<Panel primary={"My Profile"} Icon={FaceIcon} ordering={"first"} />
 			<Panel primary={"My Appointments"} Icon={HistoryIcon} />
 			<Panel
