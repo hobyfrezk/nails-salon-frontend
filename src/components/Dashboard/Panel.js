@@ -38,7 +38,7 @@ const useStyles = ({ ordering, expanded }) =>
 	}));
 
 const Panel = (props) => {
-	const { primary, Icon, ordering, expanded } = props;
+	const { primary, Icon, ordering, expanded, DetailComponent } = props;
 
 	const classes = useStyles({ ordering, expanded })();
 
@@ -54,6 +54,7 @@ const Panel = (props) => {
 					<p className={classes.text}>{primary}</p>
 				</AccordionSummary>
 				<AccordionDetails>
+					{DetailComponent ? <DetailComponent /> : null}
 				</AccordionDetails>
 			</Accordion>
 		</div>

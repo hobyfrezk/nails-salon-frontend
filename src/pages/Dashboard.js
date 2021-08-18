@@ -3,6 +3,7 @@ import FaceIcon from "@material-ui/icons/FaceOutlined";
 import HistoryIcon from "@material-ui/icons/History";
 import MonetizationOnIcon from "@material-ui/icons/MonetizationOnOutlined";
 import Panel from "components/Dashboard/Panel";
+import ProfileAccordion from "components/Dashboard/ProfileAccordion";
 import { apiLogout } from "api/auth";
 import { makeStyles } from "@material-ui/core/styles";
 import { updateAuth } from "redux/authSlice";
@@ -26,10 +27,10 @@ const useStyles = makeStyles((theme) => ({
 		fontSize: "25px",
 		fontWeight: "600",
 	},
-	button:{
+	button: {
 		width: "fit-content",
-		border: "2px solid"
-	}
+		border: "2px solid",
+	},
 }));
 
 const Dashboard = () => {
@@ -40,8 +41,8 @@ const Dashboard = () => {
 		const response = await apiLogout();
 		console.log(response);
 
-		if(!response.success){
-			return
+		if (!response.success) {
+			return;
 		}
 		dispatch(
 			updateAuth({
@@ -53,14 +54,20 @@ const Dashboard = () => {
 		);
 	};
 
-
 	return (
 		<div className={classes.container}>
 			<div className={classes.titleContainer}>
 				<div className={classes.title}> My account</div>
-				<Button className={classes.button} onClick={logoutOnClick}>Logout</Button>	
+				<Button className={classes.button} onClick={logoutOnClick}>
+					Logout
+				</Button>
 			</div>
-			<Panel primary={"My Profile"} Icon={FaceIcon} ordering={"first"} />
+			<Panel
+				primary={"My Profile"}
+				DetailComponent={ProfileAccordion}
+				Icon={FaceIcon}
+				ordering={"first"}
+			/>
 			<Panel primary={"My Appointments"} Icon={HistoryIcon} />
 			<Panel
 				primary={"My Checkouts"}
