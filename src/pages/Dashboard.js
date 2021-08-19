@@ -1,3 +1,4 @@
+import AppointmentAccordion from "components/Dashboard/AppointmentAccordion";
 import { Button } from "@material-ui/core";
 import FaceIcon from "@material-ui/icons/FaceOutlined";
 import HistoryIcon from "@material-ui/icons/History";
@@ -7,6 +8,7 @@ import ProfileAccordion from "components/Dashboard/ProfileAccordion";
 import { apiLogout } from "api/auth";
 import { makeStyles } from "@material-ui/core/styles";
 import { updateAuth } from "redux/authSlice";
+import { updateHistoryList } from "redux/appointmentSlice";
 import { useDispatch } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
@@ -50,6 +52,11 @@ const Dashboard = () => {
 					isLoggedIn: false,
 					user: {},
 				},
+			}),
+		);
+		dispatch(
+			updateHistoryList({
+				historyList: [],
 			})
 		);
 	};
@@ -68,7 +75,11 @@ const Dashboard = () => {
 				Icon={FaceIcon}
 				ordering={"first"}
 			/>
-			<Panel primary={"My Appointments"} Icon={HistoryIcon} />
+			<Panel
+				primary={"My Appointments"}
+				Icon={HistoryIcon}
+				DetailComponent={AppointmentAccordion}
+			/>
 			<Panel
 				primary={"My Checkouts"}
 				Icon={MonetizationOnIcon}
