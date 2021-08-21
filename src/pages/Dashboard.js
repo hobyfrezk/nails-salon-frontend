@@ -2,9 +2,11 @@ import AppointmentAccordion from "components/Dashboard/AppointmentAccordion";
 import { Button } from "@material-ui/core";
 import FaceIcon from "@material-ui/icons/FaceOutlined";
 import HistoryIcon from "@material-ui/icons/History";
+import { Link } from "react-router-dom";
 import MonetizationOnIcon from "@material-ui/icons/MonetizationOnOutlined";
 import Panel from "components/Dashboard/Panel";
 import ProfileAccordion from "components/Dashboard/ProfileAccordion";
+import React from 'react'
 import { apiLogout } from "api/auth";
 import { makeStyles } from "@material-ui/core/styles";
 import { updateAuth } from "redux/authSlice";
@@ -38,8 +40,20 @@ const useStyles = makeStyles((theme) => ({
 const Dashboard = () => {
 	const classes = useStyles();
 	const dispatch = useDispatch();
-
+	
+	const CustomLink = React.useMemo(
+		() =>
+			React.forwardRef((linkProps, ref) => (
+				<Link ref={ref} to={'/'} {...linkProps} />
+			)),
+		[]
+	);
 	const logoutOnClick = async () => {
+		/* 
+		1. send logout request,
+		2. delete logged in status from local state
+		3. route to /home page
+		*/
 		const response = await apiLogout();
 		console.log(response);
 
@@ -59,13 +73,16 @@ const Dashboard = () => {
 				historyList: [],
 			})
 		);
+
+		
+
 	};
 
 	return (
 		<div className={classes.container}>
 			<div className={classes.titleContainer}>
 				<div className={classes.title}> My account</div>
-				<Button className={classes.button} onClick={logoutOnClick}>
+				<Button component={CustomLink} className={classes.button} onClick={logoutOnClick}>
 					Logout
 				</Button>
 			</div>
