@@ -10,21 +10,21 @@ import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 const MyDrawer = () => {
 	const [drawerState, setDrawerState] = useState(false);
 
-	const toggleDrawer = (state) => {
-		setDrawerState(state);
+	const toggleDrawer = () => {
+		setDrawerState(~drawerState);
 	};
 
 	return (
 		<div>
-			<Button onClick={() => toggleDrawer(true)}>
+			<Button onClick={() => toggleDrawer()}>
 				<MenuIcon />
 			</Button>
 			<SwipeableDrawer
 				open={drawerState}
-				onClose={() => toggleDrawer(false)}
-				onOpen={() => toggleDrawer(true)}
+				onClose={() => toggleDrawer()}
+				onOpen={() => toggleDrawer()}
 			>
-				<SideMenu />
+				<SideMenu toggleDrawer={toggleDrawer}/>
 			</SwipeableDrawer>
 		</div>
 	);

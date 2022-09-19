@@ -19,21 +19,21 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const SideMenu = () => {
+const SideMenu = (props) => {
 	const classes = useStyles();
 	return (
 		<div className={classes.sideMenu}>
 			<List>
 				<Divider />
-				<MyListItem to="/" primary="Home" style={useStyles} />
+				<MyListItem to="/" primary="Home" style={useStyles} onClick={props.toggleDrawer}/>
 				<Divider />
-				<MyListItem to="/services" primary="Service" style={useStyles} />
+				<MyListItem to="/services" primary="Service" style={useStyles} onClick={props.toggleDrawer}/>
 				<Divider />
-				<MyListItem to="/galary" primary="Galary" style={useStyles} />
+				<MyListItem to="/galary" primary="Galary" style={useStyles} onClick={props.toggleDrawer}/>
 				<Divider />
-				<MyListItem to="/contact" primary="Contact" style={useStyles} />
+				<MyListItem to="/contact" primary="Contact" style={useStyles} onClick={props.toggleDrawer}/>
 				<Divider />
-				<MyListItem to="/dashboard" primary="My Account" style={useStyles} />
+				<MyListItem to="/dashboard" primary="My Account" style={useStyles} onClick={props.toggleDrawer} />
 				<Divider />
 			</List>
 		</div>
