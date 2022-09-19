@@ -48,7 +48,7 @@ export const MyListItem = (props) => {
 	);
 
 	return (
-		<ListItem button component={CustomLink} className={classes.listItem} onClick={()=>props.onClick()}>
+		<ListItem button component={CustomLink} className={classes.listItem} >
 			{props.icon ? props.icon : null}
 			<ListItemText primary={primary} disableTypography />
 		</ListItem>
