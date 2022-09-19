@@ -2,7 +2,7 @@ import Carousel from "react-material-ui-carousel";
 import { CarouselFont } from "components/Theme";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
+const useHomeStyles = makeStyles((theme) => ({
 	container: {
 		color: "white",
 		display: "flex",
@@ -65,8 +65,8 @@ const indicatorContainerStyle = {
 	height: "40px",
 };
 
-function Pic({ item }) {
-	const classes = useStyles();
+function HomePic({ item }) {
+	const classes = useHomeStyles();
 
 	return (
 		<div className={classes.container}>
@@ -92,10 +92,60 @@ const HomeCarousel = ({ pic }) => {
 			indicatorContainerProps={{ style: indicatorContainerStyle }}
 		>
 			{pic.map((item, i) => (
-				<Pic key={i} item={item} />
+				<HomePic key={i} item={item} />
 			))}
 		</Carousel>
 	);
 };
 
-export default HomeCarousel;
+
+const usePriceStyles = makeStyles((theme) => ({
+	container: {
+		color: "white",
+		display: "flex",
+		fontFamily: CarouselFont,
+	},
+	img: {
+		width: "70wv",
+		marginLeft: "auto",
+		marginRight: "auto",
+		objectFit: "cover",
+		[theme.breakpoints.down("md")]: {
+			width: "95%",
+			marginLeft: "auto",
+			marginRight: "auto",
+			objectFit: "cover",
+		},
+	},
+}));
+
+
+function PricePic({ item }) {
+	const classes = usePriceStyles();
+
+	return (
+		<div className={classes.container}>
+			<img className={classes.img} src={item.filename} alt={item.name} />
+		</div>
+	);
+}
+
+const PriceCarousel = ({ pic }) => {
+
+	return (
+		<Carousel
+			timeout={300}
+			autoPlay={false}
+			animation={"slide"}
+			navButtonsAlwaysVisible={true}
+			navButtonsProps={{ style: navButtonStyle }}
+			indicatorContainerProps={{ style: indicatorContainerStyle }}
+		>
+			{pic.map((item, i) => (
+				<PricePic key={i} item={item} />
+			))}
+		</Carousel>
+	);
+};
+
+export {HomeCarousel, PriceCarousel};

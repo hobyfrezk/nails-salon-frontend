@@ -5,6 +5,7 @@ import Contact from "pages/contact/Contact";
 import Footer from "components/Footer/Footer";
 import Home from "pages/homepage/Home";
 import NavBar from "components/NavBar/NavBar";
+import Price from "pages/servicePage/Service";
 import { ThemeProvider } from "@material-ui/styles";
 import myTheme from "components/Theme";
 
@@ -37,7 +38,7 @@ const App = () => {
 
 				<Switch>
 					<Route path="/services">
-						<p>services</p>
+						<Price mobileView={mobileView}/>
 					</Route>
 					<Route path="/galary">
 						<p>galary</p>
